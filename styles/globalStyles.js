@@ -19,10 +19,18 @@ export const globalStyles = StyleSheet.create ({
   input: {
     borderWidth: 2,
     borderColor: '#ddd',
-    borderRadius: 15,
+    borderRadius: 8,
     paddingVertical: 5,
     paddingHorizontal: 15,
     fontSize: 16,
     width: '100%',
+    marginVertical: 5,
+  },
+  button: {
+    marginTop: 5,
+  },
+  error: {
+    color: 'red',
+    fontWeight: 'bold',
   },
 });

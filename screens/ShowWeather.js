@@ -1,22 +1,21 @@
 import React from 'react';
-import {View, Text, ImageBackground} from 'react-native';
+import {View, Text} from 'react-native';
+import {globalStyles} from '../styles/globalStyles';
 
 const ShowWeather = ({weathers}) => {
-  console.log (weathers);
   const {name, timezone, weather, sys, main} = weathers;
   return (
     <View>
-      <Text>Show Weather</Text>
+      <Text style={globalStyles.title}>Weather Details</Text>
       <Text>{name}</Text>
       <Text>{timezone}</Text>
       <Text>{sys.country}</Text>
       {weather.map (item => (
-        <View>
+        <View key={item.name}>
           <Text>{item.description}</Text>
           <Text>{item.main}</Text>
         </View>
       ))}
-
       <View>
         <Text>Humidity: {main.humidity}</Text>
         <Text>Pressure: {main.pressure}</Text>s
