@@ -10,12 +10,12 @@ const ShowWeather = ({weathers}) => {
   return (
     <View style={globalStyles.weatherContainer}>
       <Text style={globalStyles.title}>Forecast</Text>
-      <Text style={globalStyles.weatherItem}>
-        <TextField>Country/City :</TextField> {name}
-      </Text>
       <Text style={globalStyles.weatherItem}>{weather[0].description}</Text>
       <Text style={globalStyles.weatherItem}>{weather[0].main}</Text>
       <Text style={globalStyles.weatherItem}>{weather[0].description}</Text>
+      <Text style={globalStyles.weatherItem}>
+        <TextField>Country/City : </TextField> {name}
+      </Text>
 
       <View style={globalStyles.weatherInfo}>
         <Text style={globalStyles.subTitle}>Weather Details</Text>
@@ -32,7 +32,7 @@ const ShowWeather = ({weathers}) => {
         </Text>
         <Text style={globalStyles.weatherItem}>
           <TextField>Temperature Max : </TextField>
-          Temperature Max: {main.temp_max}°C{' '}
+          {main.temp_max}°C{' '}
         </Text>
         <Text style={globalStyles.weatherItem}>
           <TextField>Temperature Min : </TextField>{main.temp_min}°C{' '}

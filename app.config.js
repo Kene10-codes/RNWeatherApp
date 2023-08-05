@@ -23,6 +23,14 @@ export default {
         backgroundColor: '#ffffff',
       },
     },
+    plugins: [
+      [
+        'expo-location',
+        {
+          locationAlwaysAndWhenInUsePermission: 'Allow $(PRODUCT_NAME) to use your location.',
+        },
+      ],
+    ],
     web: {
       favicon: './assets/favicon.png',
     },

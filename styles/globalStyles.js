@@ -10,7 +10,6 @@ export const globalStyles = StyleSheet.create ({
     alignItems: 'center',
     fontSize: 24,
     fontWeight: 'bold',
-    color: 'maroon',
   },
   cityText: {
     fontSize: 18,
@@ -34,15 +33,21 @@ export const globalStyles = StyleSheet.create ({
     fontWeight: 'bold',
   },
   weatherContainer: {
-    flex: 1,
     marginTop: 20,
+    width: 250,
+    height: 310,
+    borderWidth: 1,
+    shadowOffset: {width: 1, height: 1},
+    shadowColor: 'gray',
+    shadowOpacity: 0.4,
+    shadowRadius: 5,
+    padding: 10,
   },
   subTitle: {
     alignItems: 'center',
     fontSize: 21,
     fontWeight: 'bold',
     paddingBottom: 5,
-    color: 'maroon',
   },
   weatherItem: {
     paddingVertical: 2,
