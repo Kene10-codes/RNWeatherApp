@@ -7,8 +7,10 @@ export const globalStyles = StyleSheet.create ({
     paddingHorizontal: 30,
   },
   title: {
-    fontSize: 18,
+    alignItems: 'center',
+    fontSize: 24,
     fontWeight: 'bold',
+    color: 'maroon',
   },
   cityText: {
     fontSize: 18,
@@ -24,13 +26,29 @@ export const globalStyles = StyleSheet.create ({
     paddingHorizontal: 15,
     fontSize: 16,
     width: '100%',
-    marginVertical: 5,
-  },
-  button: {
     marginTop: 5,
+    marginBottom: 1,
   },
   error: {
     color: 'red',
     fontWeight: 'bold',
+  },
+  weatherContainer: {
+    flex: 1,
+    marginTop: 20,
+  },
+  subTitle: {
+    alignItems: 'center',
+    fontSize: 21,
+    fontWeight: 'bold',
+    paddingBottom: 5,
+    color: 'maroon',
+  },
+  weatherItem: {
+    paddingVertical: 2,
+    fontSize: 16,
+  },
+  weatherInfo: {
+    marginTop: 20,
   },
 });

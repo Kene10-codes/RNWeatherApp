@@ -1,28 +1,42 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import {globalStyles} from '../styles/globalStyles';
 
+// Component
+import TextField from '../components/text';
+
 const ShowWeather = ({weathers}) => {
-  const {name, timezone, weather, sys, main} = weathers;
+  const {name, weather, sys, main} = weathers;
   return (
-    <View>
-      <Text style={globalStyles.title}>Weather Details</Text>
-      <Text>{name}</Text>
-      <Text>{timezone}</Text>
-      <Text>{sys.country}</Text>
-      {weather.map (item => (
-        <View key={item.name}>
-          <Text>{item.description}</Text>
-          <Text>{item.main}</Text>
-        </View>
-      ))}
-      <View>
-        <Text>Humidity: {main.humidity}</Text>
-        <Text>Pressure: {main.pressure}</Text>s
-        <Text>Temperature: {main.temp}</Text>
-        <Text>Temp Max: {main.temp_max}</Text>
-        <Text>Temp Min: {main.temp_min}</Text>
-        <Text>Sea Level: {main.sea_level}</Text>
+    <View style={globalStyles.weatherContainer}>
+      <Text style={globalStyles.title}>Forecast</Text>
+      <Text style={globalStyles.weatherItem}>
+        <TextField>Country/City :</TextField> {name}
+      </Text>
+      <Text style={globalStyles.weatherItem}>{weather[0].description}</Text>
+      <Text style={globalStyles.weatherItem}>{weather[0].main}</Text>
+      <Text style={globalStyles.weatherItem}>{weather[0].description}</Text>
+
+      <View style={globalStyles.weatherInfo}>
+        <Text style={globalStyles.subTitle}>Weather Details</Text>
+        <Text style={globalStyles.weatherItem}>
+          <TextField>Humidity : </TextField> {main.humidity}g/m3.
+        </Text>
+        <Text style={globalStyles.weatherItem}>
+          <TextField>Pressure : </TextField>{main.pressure}Pa
+        </Text>
+        <Text style={globalStyles.weatherItem}>
+          <TextField>
+            Temperature :{' '}
+          </TextField> {main.temp}°C
+        </Text>
+        <Text style={globalStyles.weatherItem}>
+          <TextField>Temperature Max : </TextField>
+          Temperature Max: {main.temp_max}°C{' '}
+        </Text>
+        <Text style={globalStyles.weatherItem}>
+          <TextField>Temperature Min : </TextField>{main.temp_min}°C{' '}
+        </Text>
       </View>
     </View>
   );

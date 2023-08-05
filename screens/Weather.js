@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, FlatList, Button, TouchableHighlight, TouchableWithoutFeedback, Keyboard} from 'react-native';
+import {View, Text, TextInput, FlatList, Button, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import {globalStyles} from '../styles/globalStyles';
 import Constants from 'expo-constants';
 import axios from 'axios';
@@ -17,7 +17,6 @@ export default function Weather () {
 
   // Search Weather using Location
   const getWeather = async () => {
-   
     if (location === '') {
         setErrorMessage('Location cannot be empty')
         setIsError(true)
@@ -32,6 +31,8 @@ export default function Weather () {
         setErrorMessage ('');
     } catch (error) {
       setIsError(true);
+    } finally {
+      setLocation('')
     }
   };
 
@@ -45,15 +46,13 @@ export default function Weather () {
         onChangeText={setLocation}
         style={globalStyles.input}
       />
-      {isError ? <Text style={globalStyles.error}>{errorMessage}</Text> : ''}
+      {<Text>{isError}</Text> ? <Text style={globalStyles.error}>{errorMessage}</Text> : ''}
 
-      {/* Search Button */}
-      <TouchableHighlight style={globalStyles.button}>
-        <Button title="Search" color="maroon" onPress={getWeather} />
-      </TouchableHighlight>
+      {/* Search Button */}  
+      <Button title="Search" color="maroon" onPress={getWeather} />
 
       {/*  FlatList to render the items */}
-      {weather ? <ShowWeather weathers={weather} /> : <Text>No Weather Available Now!</Text>}
+      {<Text>{weather}</Text> ? <ShowWeather weathers={weather} /> : <Text>No Weather Available Now!</Text>}
     </View>
    </TouchableWithoutFeedback>
   );
