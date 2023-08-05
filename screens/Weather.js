@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, FlatList, Button, TouchableHighlight} from 'react-native';
+import {View, Text, TextInput, FlatList, Button, TouchableHighlight, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import {globalStyles} from '../styles/globalStyles';
 import Constants from 'expo-constants';
 import axios from 'axios';
@@ -27,17 +27,17 @@ export default function Weather () {
          `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${Constants.expoConfig?.extra?.weatherAPI}`
        );
         const responseData = response.data;
-        setWeather(responseData)
+        setWeather(responseData);
+        setIsError(false);
         setErrorMessage ('');
-        setIsError(false)
     } catch (error) {
-      setIsError(true)
+      setIsError(true);
     }
   };
 
-
    return (
-    <View style={globalStyles.container}>
+   <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+     <View style={globalStyles.container}>
       <Text style={globalStyles.cityText}>Enter your City/Country : </Text>
       <TextInput
         value={location}
@@ -45,16 +45,16 @@ export default function Weather () {
         onChangeText={setLocation}
         style={globalStyles.input}
       />
-       {isError ? <Text style={globalStyles.error}>{errorMessage}</Text> : ''}
+      {isError ? <Text style={globalStyles.error}>{errorMessage}</Text> : ''}
 
-       {/* Search Button */}
-       <TouchableHighlight style={globalStyles.button}>
+      {/* Search Button */}
+      <TouchableHighlight style={globalStyles.button}>
         <Button title="Search" color="maroon" onPress={getWeather} />
-       </TouchableHighlight>
+      </TouchableHighlight>
 
       {/*  FlatList to render the items */}
-       {weather ? <ShowWeather weathers={weather} /> : <Text>No Weather Available Now!</Text>}
-    
+      {weather ? <ShowWeather weathers={weather} /> : <Text>No Weather Available Now!</Text>}
     </View>
+   </TouchableWithoutFeedback>
   );
 }
