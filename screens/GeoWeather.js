@@ -39,13 +39,12 @@ export default function GeoWeather ({navigation}) {
 
     // Destructure weather object
     const {main} = weathers;
-    // console.log(main)
 
   return (
     <View style={globalStyles.container}>
      <View style={globalStyles.weatherHeader}>
        <Text style={globalStyles.title}>Weather</Text>
-        <TouchableHighlight >
+        <TouchableHighlight onPress={() => navigation.navigate('Weather')} >
          <Button title='Click To Search' color='maroon' />
       </TouchableHighlight>
      </View>

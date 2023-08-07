@@ -5,8 +5,7 @@ import Constants from 'expo-constants';
 import axios from 'axios';
 
 // Components
-// import ShowWeather from './ShowWeather';
-
+import ShowWeather from './ShowWeather';
 
 export default function Weather () {
   const [location, setLocation] = useState ('Imo');
