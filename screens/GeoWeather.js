@@ -1,18 +1,24 @@
 import React, {useState, useEffect} from 'react';
-import {Platform, Text, View, StyleSheet, Button, TouchableHighlight} from 'react-native';
+import {Platform, Text, View, Button, TouchableOpacity, TouchableHighlight} from 'react-native';
 import {globalStyles} from '../styles/globalStyles';
 import Constants from 'expo-constants';
 import * as Location from 'expo-location';
 import axios from 'axios';
 
-// Screens
+// Screens and components
 import ShowGeoWeather from './ShowGeoWeather';
+import ButtonComp from '../components/button';
 
 
 export default function GeoWeather ({navigation}) {
   const [errorMsg, setErrorMsg] = useState (null);
   const [weathers, setWeather] = useState ('');
   const [loading, setLoading] = useState(true)
+
+  // GoTo weather function
+  const goToWeather = () => {
+    navigation.navigate('Weather');
+  }
 
   useEffect (() => {
     (async () => {
@@ -37,16 +43,18 @@ export default function GeoWeather ({navigation}) {
     }) ();
   }, []);
 
-    // Destructure weather object
-    const {main} = weathers;
+  // Destructure weather object
+  const {main} = weathers;
 
   return (
     <View style={globalStyles.container}>
      <View style={globalStyles.weatherHeader}>
        <Text style={globalStyles.title}>Weather</Text>
-        <TouchableHighlight onPress={() => navigation.navigate('Weather')} >
-         <Button title='Click To Search' color='maroon' />
-      </TouchableHighlight>
+       <ButtonComp onPress={goToWeather}>
+        Click To Search
+       </ButtonComp>
+        <TouchableOpacity  >
+      </TouchableOpacity>
      </View>
       
       <View style={globalStyles.weatherInfo}>
