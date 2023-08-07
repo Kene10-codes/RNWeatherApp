@@ -56,4 +56,9 @@ export const globalStyles = StyleSheet.create ({
   weatherInfo: {
     marginTop: 20,
   },
+  weatherHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
 });

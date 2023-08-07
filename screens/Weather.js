@@ -1,19 +1,18 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, FlatList, Button, TouchableWithoutFeedback, Keyboard} from 'react-native';
+import {View, Text, TextInput, Button, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import {globalStyles} from '../styles/globalStyles';
 import Constants from 'expo-constants';
 import axios from 'axios';
 
 // Components
-import ShowWeather from './ShowWeather';
+// import ShowWeather from './ShowWeather';
 
 
 export default function Weather () {
   const [location, setLocation] = useState ('Imo');
   const [weather, setWeather] = useState('')
   const [errorMessage, setErrorMessage] = useState ('');
-  const [isError, setIsError] =  useState(false)
-
+  const [isError, setIsError] =  useState(false);
 
   // Search Weather using Location
   const getWeather = async () => {
@@ -52,7 +51,7 @@ export default function Weather () {
       <Button title="Search" color="maroon" onPress={getWeather} />
 
       {/*  FlatList to render the items */}
-      {<Text>{weather}</Text> ? <ShowWeather weathers={weather} /> : <Text>No Weather Available Now!</Text>}
+       {<Text>{weather}</Text> ? <ShowWeather weathers={weather} /> : <Text>No Weather Available Now!</Text>} 
     </View>
    </TouchableWithoutFeedback>
   );

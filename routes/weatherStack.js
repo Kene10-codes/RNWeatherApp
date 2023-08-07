@@ -14,7 +14,7 @@ export default (WeatherStack = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Weather"
+        initialRouteName="GeoWeather"
         component={GeoWeather}
         screenOptions={{headerShown: false}}
       >
