@@ -6,7 +6,7 @@ import {globalStyles} from '../styles/globalStyles';
 import TextField from '../components/text';
 
 const ShowWeather = ({weathers}) => {
-  const {name, weather, sys, main} = weathers;
+  const {name, weather, main} = weathers;
   return (
     <View style={globalStyles.weatherContainer}>
       <Text style={globalStyles.title}>Forecast</Text>

@@ -9,7 +9,7 @@ import ShowWeather from './ShowWeather';
 
 export default function Weather () {
   const [location, setLocation] = useState ('Imo');
-  const [weather, setWeather] = useState('')
+  const [weather, setWeather] = useState([])
   const [errorMessage, setErrorMessage] = useState ('');
   const [isError, setIsError] =  useState(false);
 
